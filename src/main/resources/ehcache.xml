@@ -6,7 +6,7 @@
 
     <!-- - maxElementsInMemory : 최대 메모리 용량
     - eternal : 캐시를 영구적으로 저장 할 것 인지? (default : false)
-    >> eternal 값이 true면 캐싱 타임에 따라 제거하는 설인 timeToLiveSeconds,timeToIdleSeconds 가 무시됨.
+    >> true면 캐싱 타임에 따라 제거하는 설인 timeToLiveSeconds,timeToIdleSeconds 가 무시됨.
     - overflowToDisk : 오버플로우 된 항목에 대해 디스크 저장 여부(default : false)
     - timeToLiveSeconds : 해당 초가 지나면 캐시 삭제 (default: 0)
     - timeToIdleSeconds  :다음 시간 동안 유휴상태(Idle) 후 갱신 할 지 설정 (default: 0)
