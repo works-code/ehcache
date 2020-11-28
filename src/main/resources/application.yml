@@ -1,0 +1,6 @@
+server:
+  port: 8088
+spring:
+  cache:
+    ehcache:
+      config: ehcache.xml

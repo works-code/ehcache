@@ -1,0 +1,38 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://www.ehcache.org/ehcache.xsd"
+         updateCheck="true"
+         monitoring="autodetect"
+         dynamicConfig="true">
+
+    <!-- - maxElementsInMemory : 최대 메모리 용량
+    - eternal : 캐시를 영구적으로 저장 할 것 인지? (default : false)
+    >> eternal 값이 true면 캐싱 타임에 따라 제거하는 설인 timeToLiveSeconds,timeToIdleSeconds 가 무시됨.
+    - overflowToDisk : 오버플로우 된 항목에 대해 디스크 저장 여부(default : false)
+    - timeToLiveSeconds : 해당 초가 지나면 캐시 삭제 (default: 0)
+    - timeToIdleSeconds  :다음 시간 동안 유휴상태(Idle) 후 갱신 할 지 설정 (default: 0)
+    - memoryStoreEvictionPolicy : 아래 참조 (default : LRU)
+    # FIFO First In First Out.
+    Cache에 node를 추가할 경우 등록시간을 기록하여, 지정한 Cache size가 overflow가 발생할 경우에,
+    등록시간이 가장 빠른 node를 입력된 node로 변경하여 Cache에 관리한다.
+
+    # LFU Least Frequently Used.
+    가장 호출이 안된 node를 overflow 발생시 삭제하고, 새로 등록된 node를 등록하는 알고리즘으로,
+    Cache에 등록된 값을 호출할 때 count값과 위치를 함께 관리하여, overflow 발생할 때
+    count값이 제일적은 node를 삭제한다.
+
+    # LRU Least Recently Used.
+    가장 오랫동안 사용이 안된 node를 overflow발생시에 삭제하고,
+    새로 등록된 node를 등록하는 알고리즘으로, Cache에 등록된 값을 호출할 때
+    호출된 node 의 위치를 제일 앞으로 이동한다. overflow가 발생할 경우, 마지막 node를 삭제하여 관리한다.
+    - transactionalMode :  copyOnRead , copyOnWrite 시 트렉젝션 모드를 설정-->
+    <cache name="codeCache"
+           maxElementsInMemory="1000"
+           eternal="true"
+           overflowToDisk="false"
+           timeToLiveSeconds="300"
+           timeToIdleSeconds="0"
+           memoryStoreEvictionPolicy="LFU"
+           transactionalMode="off">
+    </cache>
+
+</ehcache>
