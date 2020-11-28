@@ -23,7 +23,7 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    compile 'org.apache.commons:commons-lang3'
+    compile 'org.apache.commons:commons-lang3' // util 을 사용 하기 위해
 }
 
 test {
